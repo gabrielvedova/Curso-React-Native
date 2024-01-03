@@ -1,4 +1,3 @@
 # Curso-React-Native
-
-Estou usando o Expo por causa da facilidade entre os computadores, pois assim não necessito de um pc muito potente como o meu.
-Removi também a pasta Fundamentos versão de React native, pois estava dando erro para mim e decidi ir para o Expo.
+Olá me chamo Gabriel Vedova, sou estudante da ETE Porto Digital, e criei este repositório das linhas de código que criei em React-Native como forma de mostrar o meu conteúdo ao mundo.
+Estou utilizando o expo-go, como forma de facilitar o uso do meu repositório para várias pessoas.
