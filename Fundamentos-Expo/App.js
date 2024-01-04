@@ -8,8 +8,14 @@ import estilo from './src/estilo';
 // import Titulo from './src/Titulo';
 // import Botao from './src/Botao';
 // import Contador from './src/Contador';
-import PaiDireta from './src/direta/ComponentePai'
-import PaiIndireta from './src/indireta/ComponentePai'
+// import PaiDireta from './src/direta/ComponentePai'
+// import PaiIndireta from './src/indireta/ComponentePai'
+// import ContadorV2 from './src/DiretaEIndireta/Contador/ContadorV2';
+// import Diferenciar from './src/Diferenciar';
+import ParImpar from './src/ParImpar';
+import Familia from './src/relacao/Familia';
+import Membro from './src/relacao/Membro';
+import UsuarioLogado from './src/UsuarioLogado';
 
 export default () => {
   return(
@@ -57,16 +63,48 @@ export default () => {
         <Text style={estilo.TxtG}>Aula 8</Text>
         <Contador inicial={10} passo={10} />
         <Text />
-      */}
+      
 
-        {/* Aula 9 */} 
+                    Aula 9
         <Text style={estilo.TxtG}>Aula 9</Text>
         <PaiDireta/>
         <Text />
 
-        {/* Aula 10 */} 
+                    Aula 10
         <Text style={estilo.TxtG}>Aula 10</Text>
         <PaiIndireta/>
+        <Text />
+
+                    Aula 11
+        <Text style={estilo.TxtG}>Aula 11</Text>
+        <ContadorV2 />
+        <Text />
+
+                    Aula 12
+        <Text style={estilo.TxtG}>Aula 12</Text>
+        <Diferenciar />
+        <Text />
+      */}
+        {/* Aula 13 */} 
+        <Text style={estilo.TxtG}>Aula 13</Text>
+        <ParImpar num={7}/>
+        <Text />
+        
+        {/* Aula 14 */} 
+        <Text style={estilo.TxtG}>Aula 14</Text>
+        <Familia>
+          <Membro nome='Ana' sobrenome='Silva' />
+          <Membro nome='Julia' sobrenome='Silva' />
+        </Familia>
+        <Familia>
+          <Membro nome='Lucas' sobrenome='Vedova'/>
+          <Membro nome='Marcelo' sobrenome='Vedova'/>
+        </Familia>
+        <Text />
+
+        {/* Aula 14 */} 
+        <Text style={estilo.TxtG}>Aula 14</Text>
+        <UsuarioLogado usuario={{nome:'Gabriel Vedova', email:'bielvedova@gmail.com'}} />
         <Text />
       </SafeAreaView>
     </>
