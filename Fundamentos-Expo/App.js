@@ -12,10 +12,16 @@ import estilo from './src/estilo';
 // import PaiIndireta from './src/indireta/ComponentePai'
 // import ContadorV2 from './src/DiretaEIndireta/Contador/ContadorV2';
 // import Diferenciar from './src/Diferenciar';
-import ParImpar from './src/ParImpar';
-import Familia from './src/relacao/Familia';
-import Membro from './src/relacao/Membro';
-import UsuarioLogado from './src/UsuarioLogado';
+// import ParImpar from './src/ParImpar';
+// import Familia from './src/relacao/Familia';
+// import Membro from './src/relacao/Membro';
+// import UsuarioLogado from './src/UsuarioLogado';
+// import ListaProdutos from './src/Produtos/ListaProdutos';
+// import ListaProdutosV2 from './src/Produtos/ListaProdutosV2';
+// import DigiteSeuNome from './src/DigiteSeuNome';
+import Quadrado from './src/Layout/Quadrado';
+import FlexBoxV1 from './src/Layout/FlexBoxV1';
+import FlexBoxV2 from './src/Layout/FlexBoxV2';
 
 export default () => {
   return(
@@ -84,13 +90,13 @@ export default () => {
         <Text style={estilo.TxtG}>Aula 12</Text>
         <Diferenciar />
         <Text />
-      */}
-        {/* Aula 13 */} 
+      
+                    Aula 13 
         <Text style={estilo.TxtG}>Aula 13</Text>
-        <ParImpar num={7}/>
+        <ParImpar num={14}/>
         <Text />
-        
-        {/* Aula 14 */} 
+
+                    Aula 14 
         <Text style={estilo.TxtG}>Aula 14</Text>
         <Familia>
           <Membro nome='Ana' sobrenome='Silva' />
@@ -102,10 +108,45 @@ export default () => {
         </Familia>
         <Text />
 
-        {/* Aula 14 */} 
-        <Text style={estilo.TxtG}>Aula 14</Text>
+                    Aula 15 
+        <Text style={estilo.TxtG}>Aula 15</Text>
         <UsuarioLogado usuario={{nome:'Gabriel Vedova', email:'bielvedova@gmail.com'}} />
         <Text />
+        
+                    Aula 16 
+        <Text style={estilo.TxtG}>Aula 16</Text>
+        <ListaProdutos />
+        <Text />
+
+                    Aula 17 
+        <Text style={estilo.TxtG}>Aula 17</Text>
+        <ListaProdutosV2 />
+        <Text />
+
+                Aula 18 - INPUT
+        <Text style={estilo.TxtG}>Aula 18</Text>
+        <DigiteSeuNome />
+        <Text />
+      
+                    FlexBox
+      
+                    Aula 19
+        <Text style={estilo.TxtG}>Aula 19</Text>
+        <Quadrado  cor='#07f'/>
+        <Quadrado  cor='#0ff'/>
+        <Quadrado  cor='#f07'/>
+        <Quadrado  cor='#0f7'/>
+        <Quadrado cor='#ff7'/>
+      */}
+
+        {/*Aula 20*/}
+        <Text style={estilo.TxtG}>Aula 20</Text>
+        <FlexBoxV1 />
+
+        {/*Aula 21*/}
+        <Text style={estilo.TxtG}>Aula 21</Text>
+        <FlexBoxV2 />
+
       </SafeAreaView>
     </>
   )
