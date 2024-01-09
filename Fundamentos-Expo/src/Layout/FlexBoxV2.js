@@ -5,7 +5,7 @@ import Quadrado from './Quadrado'
 
 export default props => {
     return (
-        <View style={style.FlexV1}>
+        <View style={style.FlexV2}>
             <Quadrado  cor='#07f'/>
             <Quadrado  cor='#0ff'/>
             <Quadrado  cor='#f07'/>
@@ -16,7 +16,7 @@ export default props => {
 }
 
 const style = StyleSheet.create({
-    FlexV1: {
+    FlexV2: {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -24,4 +24,4 @@ const style = StyleSheet.create({
     }
 })
 
-// OBS: No AlignItems, a opção stretch estica o comprimento de um item, SE O COMPRIMENTO NÃO FOR DEFINIDO
+// OBS: No AlignItems, a opção 'stretch' estica o comprimento de um item, SE O COMPRIMENTO NÃO FOR DEFINIDO

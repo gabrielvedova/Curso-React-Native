@@ -19,9 +19,12 @@ import estilo from './src/estilo';
 // import ListaProdutos from './src/Produtos/ListaProdutos';
 // import ListaProdutosV2 from './src/Produtos/ListaProdutosV2';
 // import DigiteSeuNome from './src/DigiteSeuNome';
-import Quadrado from './src/Layout/Quadrado';
-import FlexBoxV1 from './src/Layout/FlexBoxV1';
-import FlexBoxV2 from './src/Layout/FlexBoxV2';
+// import Quadrado from './src/Layout/Quadrado';
+// import FlexBoxV1 from './src/Layout/FlexBoxV1';
+// import FlexBoxV2 from './src/Layout/FlexBoxV2';
+// import FlexBoxV3 from './src/Layout/FlexBoxV3';
+// import FlexBoxV4 from './src/Layout/FlexBoxV4';
+import Mega from './src/mega-sena/Mega';
 
 export default () => {
   return(
@@ -137,15 +140,33 @@ export default () => {
         <Quadrado  cor='#f07'/>
         <Quadrado  cor='#0f7'/>
         <Quadrado cor='#ff7'/>
-      */}
 
-        {/*Aula 20*/}
+                    Aula 20
         <Text style={estilo.TxtG}>Aula 20</Text>
         <FlexBoxV1 />
+      
+      
 
-        {/*Aula 21*/}
+                    Aula 21
         <Text style={estilo.TxtG}>Aula 21</Text>
         <FlexBoxV2 />
+      
+
+                    Aula 22
+        <Text style={estilo.TxtG}>Aula 22</Text>
+        <FlexBoxV3 />
+
+
+                    Aula 23
+        <Text style={estilo.TxtG}>Aula 23</Text>
+        <FlexBoxV4 />
+      */}
+
+        {/*Aula 24*/}
+        <Text style={estilo.TxtG}>Aula 24</Text>
+        <Mega qtdeNumeros={7}/>
+        <Text />
+
 
       </SafeAreaView>
     </>
