@@ -18,6 +18,9 @@ export default class App extends Component {
         <Field opened nearMines={5}/>
         <Field opened nearMines={6}/>
         <Field opened />
+        <Field Mine />
+        <Field Mine opened />
+        <Field Mine opened exploded />
       </View>
     );
   }
