@@ -1,8 +1,6 @@
-﻿import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry"
-
-const createBoard = (rows, columns) => {
+﻿const createBoard = (rows, columns) => {
     return Array(rows).fill(0).map((_, row) => {
-        return Array(columns).fill(0).map((_, column) =>{
+        return Array(columns).fill(0).map((_, column) => {
             return {
                 row,
                 column,
@@ -20,7 +18,7 @@ const spreadMines = (board, minesAmount) => {
     const rows = board.length
     const columns = board[0].length
     let minesPlanted = 0
-
+    
     while (minesPlanted < minesAmount) {
         const rowSel = parseInt(Math.random() * rows, 10)
         const columnSel = parseInt(Math.random() * columns, 10)
@@ -79,12 +77,12 @@ const openField = (board, row, column) => {
                 .forEach(n => openField(board, n.row, n.column))
         } else {
             const neighbors = getNeighbors(board, row, column)
-            field.nearMines = neighbors.filter(n => n.mine).length
+            field.nearMines = neighbors.filter(n => n.mined).length
         }
     }
 }
 
-const fields = board =>  [].concat(...board)
+const fields = board => [].concat(...board)
 const hadExplosion = board => fields(board)
     .filter(field => field.exploded).length > 0
 const pendding = field => (field.mined && !field.flagged)
@@ -93,11 +91,21 @@ const wonGame = board => fields(board).filter(pendding).length === 0
 const showMines = board => fields(board).filter(field => field.mined)
     .forEach(field => field.opened = true)
 
+const invertFlag = (board, row, column) => {
+    const field = board[row][column]
+    field.flagged = !field.flagged
+}
+
+const flagsUsed = board => fields(board)
+    .filter(field => field.flagged).length
+
 export { 
     createMinedBoard,
     cloneBoard,
     openField,
     hadExplosion,
     wonGame,
-    showMines
+    showMines,
+    invertFlag,
+    flagsUsed
 }
