@@ -1,8 +1,7 @@
-﻿export default {
+﻿export const colors = {
     fontFamily: 'Lato',
-    colors: {
-        secondary: '#FFF',
-        mainText: '#222',
-        subText: '#555',
-    }
+    today: "#B13B44",
+    secondary: '#FFF',
+    mainText: '#d0d0d0',
+    subText: '#a2a2a2',
 }

@@ -1,34 +1,72 @@
-﻿import React from "react"
-import { View, Text, StyleSheet, useColorScheme } from "react-native"
+﻿import React, { useContext } from "react"
+import { View, Text, StyleSheet, useColorScheme, TouchableWithoutFeedback, TouchableOpacity } from "react-native"
+import { Directions, GestureHandlerRootView } from "react-native-gesture-handler"
+import Swipeable from 'react-native-gesture-handler/Swipeable'
 import Icon from "react-native-vector-icons/FontAwesome"
 
 
-import commonStyles from "../commonStyles"
+import { colors } from "../commonStyles"
 Icon.loadFont()
+
+import moment from "moment"
+import "moment/locale/pt-br"
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry"
 
 export default props => {
 
-    const doneOrNotStyle = props.doneAt != null ? {textDecorationLine: "line-through"} : {}
-    console.log(useColorScheme())
+    const doneOrNotStyle = props.doneAt != null ? { textDecorationLine: "line-through" } : {}
+    //console.log(useColorScheme())
+
+    const date = props.doneAt ? props.doneAt : props.estimateAt
+    const formattedDate = moment(date).locale("pt-br").format('ddd, D [de] MMMM')
+
+    const getRightContent = () => {
+        return (
+            <TouchableOpacity style={styles.right} 
+            onPress={() => props.onDelete && props.onDelete(props.id)}>
+                <Icon name="trash" size={20} color="#FFF" />
+            </TouchableOpacity>
+        )
+    }
+
+    const getLeftContent = () => {
+        return (
+            <View style={styles.left}>
+                <Icon name="trash" size={20} color="#FFF" style={styles.excludeIcon}/>
+                <Text style={styles.excludeText}>Excluir</Text>
+            </View>
+        )
+    }
+
 
     return (
-        <View style={styles.container}>
-            <View style={styles.checkContainer}>
-                {getCheckView(props.doneAt)}
-            </View>
-            <View>
-                <Text style={[styles.desc, doneOrNotStyle]}>{props.desc}</Text>
-                <Text style={styles.date}>{props.estimateAt + ""}</Text>
-            </View>
-        </View>
+        <GestureHandlerRootView style={{flex: 1}}>
+            <Swipeable 
+                renderRightActions={getRightContent}
+                renderLeftActions={getLeftContent}
+                onSwipeableLeftOpen={() => props.onDelete && props.onDelete(props.id)}>
+                <View style={styles.container}>
+                    <TouchableWithoutFeedback
+                        onPress={() => props.onToggleTask(props.id)}>
+                        <View style={styles.checkContainer}>
+                            {getCheckView(props.doneAt)}
+                        </View>
+                    </TouchableWithoutFeedback>
+                    <View>
+                        <Text style={[styles.desc, doneOrNotStyle]}>{props.desc}</Text>
+                        <Text style={styles.date}>{formattedDate}</Text>
+                    </View>
+                </View>
+            </Swipeable>
+        </GestureHandlerRootView>
     )
 }
 
 function getCheckView(doneAt) {
-    if ( doneAt != null ) {
+    if (doneAt != null) {
         return (
             <View style={styles.done}>
-                <Icon name="check" size={20} color="#FFF"/>
+                <Icon name="check" size={20} color="#FFF" />
             </View>
         )
     } else {
@@ -45,6 +83,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         alignItems: "center",
         paddingVertical: 10,
+        backgroundColor: "#2f2f2f"
     },
     checkContainer: {
         width: "20%",
@@ -67,13 +106,35 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     desc: {
-        fontFamily: commonStyles.fontFamily,
-        color: commonStyles.colors.mainText,
+        fontFamily: colors.fontFamily,
+        color: colors.mainText,
         fontSize: 15,
     },
     date: {
-        fontFamily: commonStyles.fontFamily,
-        color: commonStyles.colors.subText,
+        fontFamily: colors.fontFamily,
+        color: colors.subText,
         fontSize: 12,
     },
+    right: {
+        backgroundColor: "red",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        paddingHorizontal: 20
+    },
+    left: {
+        flex: 1,
+        backgroundColor: "red",
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    excludeText: {
+        fontFamily: colors.fontFamily,
+        color: "#FFF",
+        fontSize: 20,
+        margin: 10
+    },
+    excludeIcon: {
+        marginLeft: 10
+    }
 })
